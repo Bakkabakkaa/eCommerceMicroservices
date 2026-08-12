@@ -16,7 +16,7 @@ public static class DependencyInjection
         // TO DO: Add services to the IoC container
         // Infrastructure services often include data access, caching and other
         // low - level components.
-        services.AddSingleton<IUsersRepository, UsersRepository>();
+        services.AddTransient<IUsersRepository, UsersRepository>();
 
         return services;
     }
