@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsMicroservice.API", "ProductsMicroservice.API\ProductsMicroservice.API.csproj", "{176CCB94-9719-4329-B940-E7A3D67D8921}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "BusinessLogicLayer\BusinessLogicLayer.csproj", "{C30323F8-3202-4A03-A656-76C89A58C1D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{4CE26AA7-B80B-4758-A1A2-FCE7F724D5A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{176CCB94-9719-4329-B940-E7A3D67D8921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{176CCB94-9719-4329-B940-E7A3D67D8921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{176CCB94-9719-4329-B940-E7A3D67D8921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{176CCB94-9719-4329-B940-E7A3D67D8921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C30323F8-3202-4A03-A656-76C89A58C1D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30323F8-3202-4A03-A656-76C89A58C1D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30323F8-3202-4A03-A656-76C89A58C1D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30323F8-3202-4A03-A656-76C89A58C1D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CE26AA7-B80B-4758-A1A2-FCE7F724D5A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE26AA7-B80B-4758-A1A2-FCE7F724D5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE26AA7-B80B-4758-A1A2-FCE7F724D5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE26AA7-B80B-4758-A1A2-FCE7F724D5A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
