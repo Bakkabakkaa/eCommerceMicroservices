@@ -17,7 +17,7 @@ public interface IProductService
     /// </summary>
     /// <param name="conditionExpression">Expressions that represents condition to check</param>
     /// <returns>Returns matching products</returns>
-    Task<List<ProductResponse?>> GetProductsByCondition(Expression<Func<ProductResponse, bool>> conditionExpression);
+    Task<List<ProductResponse?>> GetProductsByCondition(Expression<Func<Product, bool>> conditionExpression);
 
     /// <summary>
     /// Returns a single product that matches with given condition
