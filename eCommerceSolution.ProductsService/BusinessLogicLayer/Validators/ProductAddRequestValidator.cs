@@ -9,10 +9,11 @@ public class ProductAddRequestValidator : AbstractValidator<ProductAddRequest>
     {
         RuleFor(temp => temp.ProductName)
             .NotEmpty()
-            .WithMessage("Product Name can't be blanc");
+            .WithMessage("Product Name can't be blank");
 
         RuleFor(temp => temp.Category)
-            .IsInEnum();
+            .IsInEnum()
+            .WithMessage("Category can't be blank");
 
         RuleFor(temp => temp.UnitPrice)
             .InclusiveBetween(0, double.MaxValue)

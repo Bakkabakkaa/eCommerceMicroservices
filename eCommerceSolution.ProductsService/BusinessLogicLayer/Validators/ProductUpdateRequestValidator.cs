@@ -16,7 +16,8 @@ public class ProductUpdateRequestValidator : AbstractValidator<ProductUpdateRequ
             .WithMessage("Product Name can't be blanc");
 
         RuleFor(temp => temp.Category)
-            .IsInEnum();
+            .IsInEnum()
+            .WithMessage("Category can't be blanc");
 
         RuleFor(temp => temp.UnitPrice)
             .InclusiveBetween(0, double.MaxValue)
