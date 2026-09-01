@@ -1,0 +1,65 @@
+services:
+  mysql-container:
+    image: mysql:8.3.0
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: ecommerceproductsdatabase
+    ports:
+      - "3307:3306"
+    hostname: mysql-host-productsmicroservice
+    networks:
+      - ecommerce-network
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./eCommerceSolution.ProductsService/mysql-init:/docker-entrypoint-initdb.d
+
+  products-microservice:
+    build:
+      context: ./eCommerceSolution.ProductsService 
+      dockerfile: ProductsMicroservice.API/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=mysql-host-productsmicroservice;Port=3306;Database=ecommerceproductsdatabase;UserID=root;Password=admin;
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      - mysql-container
+    networks:
+      - ecommerce-network
+
+  postgres-container:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: eCommerceUsers
+    ports:
+      - "5432:5432"
+    hostname: postgres-host-usersmicroservice
+    networks:
+      - ecommerce-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./eCommerceSolution.UsersService/pg-init:/docker-entrypoint-initdb.d
+
+  users-microservice:
+    build:
+      context: ./eCommerceSolution.UsersService
+      dockerfile: eCommerce.API/Dockerfile
+    environment:
+      - ConnectionStrings__PostgresConnection=Host=postgres-host-usersmicroservice;Port=5432;Database=eCommerceUsers;Username=postgres;Password=admin;
+    ports:
+      - "9090:9090"
+      - "9091:9091"
+    depends_on:
+      - postgres-container
+    networks:
+      - ecommerce-network
+
+networks:
+  ecommerce-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+  postgres_data:

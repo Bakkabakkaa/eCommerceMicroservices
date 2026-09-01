@@ -13,9 +13,12 @@ public static class DependencyInjection
     {
         // TO DO: Add Data Access Layer services into the IoC container
 
+        string connectionString = configuration.GetConnectionString("DefaultConnection") 
+                                  ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
         services.AddDbContext<ApplicationDbContext>(options =>
         {
-            options.UseMySQL(configuration.GetConnectionString("DefaultConnection")!);
+            options.UseMySQL(connectionString);
         });
 
         services.AddScoped<IProductsRepository, ProductsRepository>();
